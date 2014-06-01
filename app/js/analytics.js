@@ -133,7 +133,7 @@ function topWords() {
               } else if (typeof data.verb.syn === "undefined" && typeof data.verb.sim != "undefined") {
                 suggestion.innerHTML = suggestion.innerHTML + "verb: <em>similar</em> " + data.verb.sim.slice(0, 5)
               } else if (typeof data.verb.syn != "undefined" && typeof data.verb.sim != "undefined") {
-                suggestion.innerHTM L = suggestion.innerHTML + "verb: <em>synonyms</em> " + data.verb.syn.slice(0, 5) + " <em>similar</em> " + data.verb.sim.slice(0, 5)
+                suggestion.innerHTML = suggestion.innerHTML + "verb: <em>synonyms</em> " + data.verb.syn.slice(0, 5) + " <em>similar</em> " + data.verb.sim.slice(0, 5)
               }
             } else if (typeof data.adverb != "undefined") {
               if (typeof data.adverb.syn != "undefined" && typeof data.adverb.sim === "undefined") {
@@ -141,7 +141,7 @@ function topWords() {
               } else if (typeof data.adverb.syn === "undefined" && typeof data.adverb.sim != "undefined") {
                 suggestion.innerHTML = suggestion.innerHTML + "adverb: <em>similar</em> " + data.adverb.sim.slice(0, 5)
               } else if (typeof data.adverb.syn != "undefined" && typeof data.adverb.sim != "undefined") {
-                suggestion.innerHTM L = suggestion.innerHTML + "adverb: <em>synonyms</em> " + data.adverb.syn.slice(0, 5) + " <em>similar</em> " + data.adverb.sim.slice(0, 5)
+                suggestion.innerHTML = suggestion.innerHTML + "adverb: <em>synonyms</em> " + data.adverb.syn.slice(0, 5) + " <em>similar</em> " + data.adverb.sim.slice(0, 5)
               }
             } else if (typeof data.adjective != "undefined") {
               if (typeof data.adjective.syn != "undefined" && typeof data.adjective.sim === "undefined") {
@@ -149,7 +149,7 @@ function topWords() {
               } else if (typeof data.adjective.syn === "undefined" && typeof data.adjective.sim != "undefined") {
                 suggestion.innerHTML = suggestion.innerHTML + "adjective: <em>similar</em> " + data.adjective.sim.slice(0, 5)
               } else if (typeof data.adjective.syn != "undefined" && typeof data.adjective.sim != "undefined") {
-                suggestion.innerHTM L = suggestion.innerHTML + "adjective: <em>synonyms</em> " + data.adjective.syn.slice(0, 5) + " <em>similar</em> " + data.adjective.sim.slice(0, 5)
+                suggestion.innerHTML = suggestion.innerHTML + "adjective: <em>synonyms</em> " + data.adjective.syn.slice(0, 5) + " <em>similar</em> " + data.adjective.sim.slice(0, 5)
               }
             }
             debugger;
