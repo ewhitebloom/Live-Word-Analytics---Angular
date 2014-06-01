@@ -10,6 +10,7 @@
 #words_textarea {
   width: 100%;
   margin-bottom: .9em;
+  height: 100%;
 }
 
 .menu:before {
