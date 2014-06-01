@@ -104,7 +104,7 @@ function topWords() {
       var countword = document.createElement('td');
       countword.innerHTML=counts[i][1]
 
-      if (i<=4) {
+      if (counts[i][1] >= 3) {
         var suggestion = document.createElement('td');
         $.getJSON('http://words.bighugelabs.com/api/2/dafe2e8acd88d00e5096b17ca16157a7/' + counts[i][0] + '/json', {}, function(data) {
           suggestion.innerHTML= 'data[0][0] + data[0][1]'
