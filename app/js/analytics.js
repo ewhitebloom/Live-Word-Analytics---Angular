@@ -1,5 +1,3 @@
-$(function() {
-
 var countbutton = document.getElementById('wordcount_button');
 var topwordsbutton = document.getElementById('topwords_button');
 var topcharactersbutton = document.getElementById('topcharacters_button');
@@ -189,5 +187,3 @@ function topcharacters() {
   }
   createTable()
 }
-
-});
