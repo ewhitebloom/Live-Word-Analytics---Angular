@@ -106,7 +106,7 @@ function topWords() {
 
       if (i<=4) {
         var suggestion = document.createElement('td');
-        var data = $.getJSON('http://words.bighugelabs.com/api/2/dafe2e8acd88d00e5096b17ca16157a7/' + counts[i][0] + '/json', {}, function(data) {
+        $.getJSON('http://words.bighugelabs.com/api/2/dafe2e8acd88d00e5096b17ca16157a7/' + counts[i][0] + '/json', {}, function(data) {
           suggestion.innerHTML= 'data[0][0] + data[0][1]'
         });
       }

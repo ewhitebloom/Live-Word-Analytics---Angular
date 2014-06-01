@@ -7,6 +7,11 @@
   padding: 0 0 0.5em;
 }
 
+#words_textarea {
+  width: 100%;
+  margin-bottom: .9em;
+}
+
 .menu:before {
   content: "[";
 }
