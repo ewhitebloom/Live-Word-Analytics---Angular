@@ -1,6 +1,6 @@
 var countbutton = document.getElementById('wordcount_button');
 var topwordsbutton = document.getElementById('topwords_button');
-var topcharactersbutton = document.getElementById('topcharacters_button');
+var toplettersbutton = document.getElementById('topletters_button');
 
 var input_area = document.getElementById('words_textarea');
 
@@ -18,10 +18,10 @@ topwordsbutton.onclick = function() {
   }
 };
 
-topcharactersbutton.onclick = function() {
-  topcharacters();
+toplettersbutton.onclick = function() {
+  topletters();
   input_area.onkeydown = function() {
-    topcharacters()
+    topletters()
   }
 };
 
@@ -30,7 +30,7 @@ function wordCount() {
 
   document.getElementById('all_text').innerHTML = '';
 
-  var words = document.getElementById("words_textarea").value.trim().split(' ');
+  var words = document.getElementById("words_textarea").value.trim().match(/\w+/g);
 
   var para = document.createElement("p");
 
@@ -53,7 +53,7 @@ function topWords() {
 
   document.getElementById('all_text').innerHTML = '';
 
-  var words = document.getElementById("words_textarea").value.trim().split(' ');
+  var words = document.getElementById("words_textarea").value.trim().match(/\w+/g);
 
   var counts = [];
 
@@ -172,16 +172,16 @@ function topWords() {
 }
 
 
-function topcharacters() {
+function topletters() {
   document.getElementById('all_text').innerHTML = '';
 
-  var characters = document.getElementById("words_textarea").value.trim().split('');
+  var letters = document.getElementById("words_textarea").value.trim().match(/[\w]/g);
 
   var counts = [];
 
-  for (i = 0; i <= characters.length - 1; i++) {
+  for (i = 0; i <= letters.length - 1; i++) {
     var found = false;
-    var current_letter = characters[i].toLowerCase();
+    var current_letter = letters[i].toLowerCase();
 
     for (n = 0; n <= counts.length - 1; n++) {
       if (counts[n][0] == current_letter) {
