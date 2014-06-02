@@ -101,8 +101,6 @@ function topWords() {
     tr.appendChild(countword)
     tr.appendChild(suggestions)
     tbdy.appendChild(tr);
-    tbl.appendChild(tbdy);
-    element.appendChild(tbl)
 
     for (i = 0; i <= counts.length - 1; i++) {
       var tr = document.createElement('tr');
@@ -160,7 +158,7 @@ function topWords() {
               }
             }
           }
-        });
+        })
       }
       tr.appendChild(word)
       tr.appendChild(countword)
@@ -171,7 +169,8 @@ function topWords() {
     element.appendChild(tbl)
   }
   createTable()
-};
+}
+
 
 function topcharacters() {
   document.getElementById('all_text').innerHTML = '';
