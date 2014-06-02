@@ -78,6 +78,7 @@ function topWords() {
     return b[1] - a[1]
   });
 
+
   function createTable() {
     var element = document.getElementById("all_text");
 
@@ -104,6 +105,7 @@ function topWords() {
     element.appendChild(tbl)
 
     for (i = 0; i <= counts.length - 1; i++) {
+
       var tr = document.createElement('tr');
       var word = document.createElement('td');
       word.innerHTML = counts[i][0]
@@ -112,15 +114,16 @@ function topWords() {
       var suggestion = document.createElement('td');
 
       if (counts[i][1] >= 3) {
+
         $.ajax({
           type: 'GET',
-          url: 'http://words.bighugelabs.com/api/2/dafe2e8acd88d00e5096b17ca16157a7/' + counts[i][0] + '/json?callback=mycallback',
-          dataType: 'jsonp',
-          crossDomain: true,
+          async: false,
+          url: 'http://words.bighugelabs.com/api/2/dafe2e8acd88d00e5096b17ca16157a7/' + counts[i][0] + '/json?callback=?',
+          dataType: 'json',
           success: function(data) {
 
             if (typeof data.noun != "undefined") {
-              debugger;
+
               if (typeof data.noun.syn != "undefined" && typeof data.noun.sim != "undefined") {
                 suggestion.innerHTML = suggestion.innerHTML + "noun: <em>synonyms</em> " + data.noun.syn.slice(0, 3) + " <em>similar</em> " + data.noun.sim.slice(0, 3) + "\n"
               } else if (typeof data.noun.syn != "undefined" && typeof data.noun.sim === "undefined") {
@@ -162,11 +165,13 @@ function topWords() {
           }
         });
       }
+
       tr.appendChild(word)
       tr.appendChild(countword)
       tr.appendChild(suggestion)
       tbdy.appendChild(tr)
     }
+
     tbl.appendChild(tbdy)
     element.appendChild(tbl)
   }
