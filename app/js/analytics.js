@@ -128,7 +128,7 @@ function topWords() {
 
         $.ajax({
           type: 'GET',
-          url: 'http://words.bighugelabs.com/api/2/dafe2e8acd88d00e5096b17ca16157a7/' + counts[i][0] + '/json?callback=?',
+          url: 'http://words.bighugelabs.com/api/2/f5915b0e669a698049a43e63af4704af/' + counts[i][0] + '/json?callback=?',
           dataType: 'json',
           success: function(data) {
 
