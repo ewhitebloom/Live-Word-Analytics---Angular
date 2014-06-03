@@ -132,14 +132,16 @@ function topWords() {
           dataType: 'json',
           success: function(data) {
 
+            var parsedWord = this.url.split('/')[6];
+
             var tr = document.createElement('tr');
             var word = document.createElement('td');
-            word.innerHTML = this.url.split('/')[6]
+            word.innerHTML = parsedWord
 
             var countword = document.createElement('td');
 
             for (i = 0; i <= counts.length - 1; i++) {
-              if (this.url.split('/')[6] === counts[i][0]) {
+              if (parsedWord === counts[i][0]) {
                 countword.innerHTML = counts[i][1]
                 break
               }
@@ -187,13 +189,9 @@ function topWords() {
                 suggestion.innerHTML = suggestion.innerHTML + "adjective: <em>similar</em> " + data.adjective.sim.slice(0, 3) + "\n"
               }
             }
-            debugger
             tr.insertBefore(word, tr.childNodes[rowIndex])
-            debugger
             tr.insertBefore(countword, tr.childNodes[rowIndex])
-            debugger
             tr.insertBefore(suggestion, tr.childNodes[rowIndex])
-            debugger
             tbdy.insertBefore(tr, tbdy.childNodes[rowIndex])
             rowIndex += 1
           }
