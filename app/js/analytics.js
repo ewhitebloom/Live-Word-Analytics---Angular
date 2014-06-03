@@ -134,8 +134,15 @@ function topWords() {
             var tr = document.createElement('tr');
             var word = document.createElement('td');
             word.innerHTML = this.url.split('/')[6]
+
             var countword = document.createElement('td');
-            countword.innerHTML = 'counts[i][1]'
+
+            for (i = 0; i <= counts.length - 1; i++) {
+              if (this.url.split('/')[6] === counts[i][0]){
+                countword.innerHTML = counts[i][1]
+              }
+            }
+
             var suggestion = document.createElement('td');
 
             if (typeof data.noun != "undefined") {
