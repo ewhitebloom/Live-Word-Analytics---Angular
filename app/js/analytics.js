@@ -6,21 +6,21 @@ var input_area = document.getElementById('words_textarea');
 
 countbutton.onclick = function() {
   wordCount();
-  input_area.onkeydown = function() {
+  input_area.onkeyup = function() {
     wordCount()
   }
 };
 
 topwordsbutton.onclick = function() {
   topWords();
-  input_area.onkeydown = function() {
+  input_area.onkeyup = function() {
     topWords()
   }
 };
 
 toplettersbutton.onclick = function() {
   topletters();
-  input_area.onkeydown = function() {
+  input_area.onkeyup = function() {
     topletters()
   }
 };
@@ -139,7 +139,7 @@ function topWords() {
             var countword = document.createElement('td');
 
             for (i = 0; i <= counts.length - 1; i++) {
-              if (this.url.split('/')[6] === counts[i][0]){
+              if (this.url.split('/')[6] === counts[i][0]) {
                 countword.innerHTML = counts[i][1]
                 break
               }
@@ -187,10 +187,14 @@ function topWords() {
                 suggestion.innerHTML = suggestion.innerHTML + "adjective: <em>similar</em> " + data.adjective.sim.slice(0, 3) + "\n"
               }
             }
-            tr.insertBefore(word,tr.childNodes[rowIndex])
-            tr.insertBefore(countword,tr.childNodes[rowIndex])
-            tr.insertBefore(suggestion,tr.childNodes[rowIndex])
-            tbdy.insertBefore(tr,tbdy.childNodes[rowIndex])
+            debugger
+            tr.insertBefore(word, tr.childNodes[rowIndex])
+            debugger
+            tr.insertBefore(countword, tr.childNodes[rowIndex])
+            debugger
+            tr.insertBefore(suggestion, tr.childNodes[rowIndex])
+            debugger
+            tbdy.insertBefore(tr, tbdy.childNodes[rowIndex])
             rowIndex += 1
           }
         });
@@ -202,6 +206,7 @@ function topWords() {
   }
   createTable()
 };
+
 
 function topletters() {
   document.getElementById('all_text').innerHTML = '';
