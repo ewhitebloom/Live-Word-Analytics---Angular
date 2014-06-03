@@ -135,7 +135,7 @@ function topWords() {
             var word = document.createElement('td');
             word.innerHTML = this.url.split('/')[6]
             var countword = document.createElement('td');
-            countword.innerHTML = 'number'
+            countword.innerHTML = 'counts[i][1]'
             var suggestion = document.createElement('td');
 
             if (typeof data.noun != "undefined") {
@@ -178,10 +178,10 @@ function topWords() {
                 suggestion.innerHTML = suggestion.innerHTML + "adjective: <em>similar</em> " + data.adjective.sim.slice(0, 3) + "\n"
               }
             }
-            tr.appendChild(word)
-            tr.appendChild(countword)
-            tr.appendChild(suggestion)
-            tbdy.appendChild(tr)
+            tr.insertBefore(word,tr.childNodes[1])
+            tr.insertBefore(suggestion,tr.childNodes[1])
+            tr.insertBefore(countword,tr.childNodes[1])
+            tbdy.insertBefore(tr,tbdy.childNodes[1])
           }
         });
       }
