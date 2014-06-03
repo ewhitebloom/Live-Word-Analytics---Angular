@@ -124,6 +124,7 @@ function topWords() {
       }
 
       if (counts[i][1] >= 3) {
+        var rowIndex = 1;
 
         $.ajax({
           type: 'GET',
@@ -140,6 +141,7 @@ function topWords() {
             for (i = 0; i <= counts.length - 1; i++) {
               if (this.url.split('/')[6] === counts[i][0]){
                 countword.innerHTML = counts[i][1]
+                break
               }
             }
 
@@ -185,10 +187,11 @@ function topWords() {
                 suggestion.innerHTML = suggestion.innerHTML + "adjective: <em>similar</em> " + data.adjective.sim.slice(0, 3) + "\n"
               }
             }
-            tr.insertBefore(word,tr.childNodes[1])
-            tr.insertBefore(suggestion,tr.childNodes[1])
-            tr.insertBefore(countword,tr.childNodes[1])
-            tbdy.insertBefore(tr,tbdy.childNodes[1])
+            tr.insertBefore(word,tr.childNodes[rowIndex])
+            tr.insertBefore(countword,tr.childNodes[rowIndex])
+            tr.insertBefore(suggestion,tr.childNodes[rowIndex])
+            tbdy.insertBefore(tr,tbdy.childNodes[rowIndex])
+            rowIndex += 1
           }
         });
       }
