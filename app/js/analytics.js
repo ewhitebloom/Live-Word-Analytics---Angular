@@ -97,6 +97,7 @@ function topWords() {
     countword.innerHTML = "<strong>Count</strong>"
     var suggestions = document.createElement('td');
     suggestions.innerHTML = "<strong>Suggestions</strong>"
+
     tr.appendChild(word)
     tr.appendChild(countword)
     tr.appendChild(suggestions)
@@ -106,21 +107,36 @@ function topWords() {
 
     for (i = 0; i <= counts.length - 1; i++) {
 
-      var tr = document.createElement('tr');
-      var word = document.createElement('td');
-      word.innerHTML = counts[i][0]
-      var countword = document.createElement('td');
-      countword.innerHTML = counts[i][1]
-      var suggestion = document.createElement('td');
+      if (counts[i][1] < 3) {
+
+        var tr = document.createElement('tr');
+        var word = document.createElement('td');
+        word.innerHTML = counts[i][0]
+        var countword = document.createElement('td');
+        countword.innerHTML = counts[i][1]
+        var suggestion = document.createElement('td');
+
+        tr.appendChild(word)
+        tr.appendChild(countword)
+        tr.appendChild(suggestion)
+        tbdy.appendChild(tr)
+
+      }
 
       if (counts[i][1] >= 3) {
 
         $.ajax({
           type: 'GET',
-          async: false,
           url: 'http://words.bighugelabs.com/api/2/dafe2e8acd88d00e5096b17ca16157a7/' + counts[i][0] + '/json?callback=?',
           dataType: 'json',
           success: function(data) {
+
+            var tr = document.createElement('tr');
+            var word = document.createElement('td');
+            word.innerHTML = this.url.split('/')[6]
+            var countword = document.createElement('td');
+            countword.innerHTML = 'number'
+            var suggestion = document.createElement('td');
 
             if (typeof data.noun != "undefined") {
 
@@ -162,14 +178,13 @@ function topWords() {
                 suggestion.innerHTML = suggestion.innerHTML + "adjective: <em>similar</em> " + data.adjective.sim.slice(0, 3) + "\n"
               }
             }
+            tr.appendChild(word)
+            tr.appendChild(countword)
+            tr.appendChild(suggestion)
+            tbdy.appendChild(tr)
           }
         });
       }
-
-      tr.appendChild(word)
-      tr.appendChild(countword)
-      tr.appendChild(suggestion)
-      tbdy.appendChild(tr)
     }
 
     tbl.appendChild(tbdy)
