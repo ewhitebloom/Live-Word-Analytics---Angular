@@ -189,16 +189,25 @@ function topWords() {
                 suggestion.innerHTML = suggestion.innerHTML + "adjective: <em>similar</em> " + data.adjective.sim.slice(0, 3) + "\n"
               }
             }
-            tr.insertBefore(word, tr.childNodes[rowIndex])
-            tr.insertBefore(countword, tr.childNodes[rowIndex])
-            tr.insertBefore(suggestion, tr.childNodes[rowIndex])
-            tbdy.insertBefore(tr, tbdy.childNodes[rowIndex])
-            rowIndex += 1
+
+            if (rowIndex > 1) {
+              tr.insertBefore(word, tr.childNodes[rowIndex])
+              tr.insertBefore(countword, tr.childNodes[rowIndex])
+              tr.insertBefore(suggestion, tr.childNodes[rowIndex])
+              tbdy.insertBefore(tr, tbdy.childNodes[rowIndex])
+              rowIndex += 1
+            } else {
+              tr.insertBefore(word, tr.childNodes[rowIndex])
+              tr.insertBefore(suggestion, tr.childNodes[rowIndex])
+              tr.insertBefore(countword, tr.childNodes[rowIndex])
+
+              tbdy.insertBefore(tr, tbdy.childNodes[rowIndex])
+              rowIndex += 1
+            }
           }
         });
       }
     }
-
     tbl.appendChild(tbdy)
     element.appendChild(tbl)
   }
