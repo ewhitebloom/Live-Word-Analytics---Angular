@@ -203,7 +203,6 @@ function topWords() {
               tr.insertBefore(word, tr.childNodes[rowIndex])
               tr.insertBefore(suggestion, tr.childNodes[rowIndex])
               tr.insertBefore(countword, tr.childNodes[rowIndex])
-
               tbdy.insertBefore(tr, tbdy.childNodes[rowIndex])
               rowIndex += 1
             }
@@ -219,6 +218,7 @@ function topWords() {
 
 
 function topletters() {
+
   document.getElementById('all_text').innerHTML = '';
 
   var letters = document.getElementById("words_textarea").value.trim().match(/[A-z]/g);
