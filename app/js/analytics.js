@@ -60,7 +60,7 @@ function topWords() {
   for (i = 0; i <= words.length - 1; i++) {
     var found = false;
     var current_word = words[i].toLowerCase();
-    var irrelevant = ['aboard','about','above','across','after','against','along','around','before','behind','below','beneath','beside','between','beyond','during','except','following','inside','minus','onto','opposite','outside','round','since','through','toward','under','underneath','unlike','until','upon','without','as', 'at', 'but', 'by', 'down', 'for', 'from', 'in', 'into', 'like', 'near', 'next', 'of', 'off', 'on', 'onto', 'out', 'over', 'past', 'plus', 'minus', 'since', 'than', 'to', 'up', 'with'];
+    var irrelevant = ['aboard', 'about', 'above', 'across', 'after', 'against', 'along', 'around', 'before', 'behind', 'below', 'beneath', 'beside', 'between', 'beyond', 'during', 'except', 'following', 'inside', 'minus', 'onto', 'opposite', 'outside', 'round', 'since', 'through', 'toward', 'under', 'underneath', 'unlike', 'until', 'upon', 'without', 'as', 'at', 'but', 'by', 'down', 'for', 'from', 'in', 'into', 'like', 'near', 'next', 'of', 'off', 'on', 'onto', 'out', 'over', 'past', 'plus', 'minus', 'since', 'than', 'to', 'up', 'with'];
 
     if ($.inArray(current_word, irrelevant) == -1) {
       for (n = 0; n <= counts.length - 1; n++) {
