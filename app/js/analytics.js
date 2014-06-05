@@ -4,6 +4,10 @@ var toplettersbutton = document.getElementById('topletters_button');
 
 var input_area = document.getElementById('words_textarea');
 
+input_area.onkeyup = function() {
+  topWords()
+}
+
 countbutton.onclick = function() {
   wordCount();
   input_area.onkeyup = function() {
