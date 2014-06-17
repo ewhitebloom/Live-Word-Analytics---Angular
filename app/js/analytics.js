@@ -156,46 +156,7 @@ function topWords() {
 
             var suggestion = document.createElement('td');
 
-            if (typeof data.noun != "undefined") {
-
-              if (typeof data.noun.syn != "undefined" && typeof data.noun.sim != "undefined") {
-                suggestion.innerHTML = suggestion.innerHTML + "<u>noun:</u> <em>synonyms</em> " + data.noun.syn.slice(0, 3) + " <em>similar</em> " + data.noun.sim.slice(0, 3) + "\n"
-              } else if (typeof data.noun.syn != "undefined" && typeof data.noun.sim === "undefined") {
-                suggestion.innerHTML = suggestion.innerHTML + "<u>noun:</u> <em>synonyms</em> " + data.noun.syn.slice(0, 3) + "\n"
-              } else if (typeof data.noun.syn === "undefined" && typeof data.noun.sim != "undefined") {
-                suggestion.innerHTML = suggestion.innerHTML + "<u>noun:</u> <em>similar</em> " + data.noun.sim.slice(0, 3) + "\n"
-              }
-            }
-
-            if (typeof data.verb != "undefined") {
-              if (typeof data.verb.syn != "undefined" && typeof data.verb.sim != "undefined") {
-                suggestion.innerHTML = suggestion.innerHTML + "<u>verb:</u> <em>synonyms</em> " + data.verb.syn.slice(0, 3) + " <em>similar</em> " + data.verb.sim.slice(0, 3) + "\n"
-              } else if (typeof data.verb.syn != "undefined" && typeof data.verb.sim === "undefined") {
-                suggestion.innerHTML = suggestion.innerHTML + "<u>verb:</u> <em>synonyms</em> " + data.verb.syn.slice(0, 3) + "\n"
-              } else if (typeof data.verb.syn === "undefined" && typeof data.verb.sim != "undefined") {
-                suggestion.innerHTML = suggestion.innerHTML + "<u>verb:</u> <em>similar</em> " + data.verb.sim.slice(0, 3) + "\n"
-              }
-            }
-
-            if (typeof data.adverb != "undefined") {
-              if (typeof data.adverb.syn != "undefined" && typeof data.adverb.sim != "undefined") {
-                suggestion.innerHTML = suggestion.innerHTML + "<u>adverb:</u> <em>synonyms</em> " + data.adverb.syn.slice(0, 3) + " <em>similar</em> " + data.adverb.sim.slice(0, 3) + "\n"
-              } else if (typeof data.adverb.syn != "undefined" && typeof data.adverb.sim === "undefined") {
-                suggestion.innerHTML = suggestion.innerHTML + "<u>adverb:</u> <em>synonyms</em> " + data.adverb.syn.slice(0, 3) + "\n"
-              } else if (typeof data.adverb.syn === "undefined" && typeof data.adverb.sim != "undefined") {
-                suggestion.innerHTML = suggestion.innerHTML + "<u>adverb:</u> <em>similar</em> " + data.adverb.sim.slice(0, 3) + "\n"
-              }
-            }
-
-            if (typeof data.adjective != "undefined") {
-              if (typeof data.adjective.syn != "undefined" && typeof data.adjective.sim != "undefined") {
-                suggestion.innerHTML = suggestion.innerHTML + "<u>adjective:</u> <em>synonyms</em> " + data.adjective.syn.slice(0, 3) + " <em>similar</em> " + data.adjective.sim.slice(0, 3) + "\n"
-              } else if (typeof data.adjective.syn != "undefined" && typeof data.adjective.sim === "undefined") {
-                suggestion.innerHTML = suggestion.innerHTML + "<u>adjective:</u> <em>synonyms</em> " + data.adjective.syn.slice(0, 3) + "\n"
-              } else if (typeof data.adjective.syn === "undefined" && typeof data.adjective.sim != "undefined") {
-                suggestion.innerHTML = suggestion.innerHTML + "<u>adjective:</u> <em>similar</em> " + data.adjective.sim.slice(0, 3) + "\n"
-              }
-            }
+            thesaurusHandling(data,suggestion)
 
             if (rowIndex > 1) {
               tr.insertBefore(word, tr.childNodes[rowIndex])
@@ -219,6 +180,29 @@ function topWords() {
   }
   createTable()
 };
+
+
+function thesaurusHandling(data,suggestion) {
+
+  var options = ['noun', 'verb', 'adverb', 'adjective']
+
+  for (i = 0; i <= options.length - 1; i++) {
+
+    var thisWord = options[i]
+
+    if (typeof data[thisWord] != "undefined") {
+
+      if (typeof data[thisWord].syn != "undefined" && typeof data[thisWord].sim != "undefined") {
+        suggestion.innerHTML = suggestion.innerHTML + "<u>" + thisWord + ":</u> <em>synonyms</em> " + data[thisWord].syn.slice(0, 3) + " <em>similar</em> " + data[thisWord].sim.slice(0, 3) + "\n"
+      } else if (typeof data[thisWord].syn != "undefined" && typeof data[thisWord].sim === "undefined") {
+        suggestion.innerHTML = suggestion.innerHTML + "<u>" + thisWord + ":</u> <em>synonyms</em> " + data[thisWord].syn.slice(0, 3) + "\n"
+      } else if (typeof data[thisWord].syn === "undefined" && typeof data[thisWord].sim != "undefined") {
+        suggestion.innerHTML = suggestion.innerHTML + "<u>" + thisWord + ":</u> <em>similar</em> " + data[thisWord].sim.slice(0, 3) + "\n"
+      }
+    }
+  }
+
+}
 
 
 function topletters() {
