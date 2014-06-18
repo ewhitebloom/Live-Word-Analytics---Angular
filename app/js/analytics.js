@@ -55,7 +55,7 @@ function wordCount() {
 
 function topWords() {
 
-  document.getElementById('all_text').innerHTML = '';
+  document.getElementById('all_text').innerHTML = null;
 
   var words = document.getElementById("words_textarea").value.trim().match(/\w+/g);
 
