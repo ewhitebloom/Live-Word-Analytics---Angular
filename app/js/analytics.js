@@ -193,11 +193,11 @@ function thesaurusHandling(data,suggestion) {
     if (typeof data[thisWordType] != "undefined") {
 
       if (typeof data[thisWordType].syn != "undefined" && typeof data[thisWordType].sim != "undefined") {
-        suggestion.innerHTML = suggestion.innerHTML + "<u>" + thisWordType + ":</u> <em>synonyms</em> " + data[thisWordType].syn.slice(0, 3) + " <em>similar</em> " + data[thisWordType].sim.slice(0, 3) + "<div></div>"
+        suggestion.innerHTML = suggestion.innerHTML + "<div><u>" + thisWordType + ":</u> <em>synonyms</em> " + data[thisWordType].syn.slice(0, 3) + " <em>similar</em> " + data[thisWordType].sim.slice(0, 3) + "</div>"
       } else if (typeof data[thisWordType].syn != "undefined" && typeof data[thisWordType].sim === "undefined") {
-        suggestion.innerHTML = suggestion.innerHTML + "<u>" + thisWordType + ":</u> <em>synonyms</em> " + data[thisWordType].syn.slice(0, 3) + "<div></div>"
+        suggestion.innerHTML = suggestion.innerHTML + "<div><u>" + thisWordType + ":</u> <em>synonyms</em> " + data[thisWordType].syn.slice(0, 3) + "</div>"
       } else if (typeof data[thisWordType].syn === "undefined" && typeof data[thisWordType].sim != "undefined") {
-        suggestion.innerHTML = suggestion.innerHTML + "<u>" + thisWordType + ":</u> <em>similar</em> " + data[thisWordType].sim.slice(0, 3) + "<div></div>"
+        suggestion.innerHTML = suggestion.innerHTML + "<div><u>" + thisWordType + ":</u> <em>similar</em> " + data[thisWordType].sim.slice(0, 3) + "</div>"
       }
     }
   }
