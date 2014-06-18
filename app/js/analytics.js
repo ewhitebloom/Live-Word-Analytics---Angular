@@ -143,7 +143,7 @@ function topWords() {
 
             var tr = document.createElement('tr');
             var word = document.createElement('td');
-            word.innerHTML = parsedWord
+            word.innerHTML = "<a class='wordlookup'>" + parsedWord + "</a>"
 
             var countword = document.createElement('td');
 
@@ -171,6 +171,7 @@ function topWords() {
               tbdy.insertBefore(tr, tbdy.childNodes[rowIndex])
               rowIndex += 1
             }
+            define()
           }
         });
       }
