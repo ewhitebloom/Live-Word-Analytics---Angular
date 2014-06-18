@@ -21,6 +21,7 @@ function animate() {
     var colorLetter = chopped[i]
 
     colorDiv.style.color = colors[i % colors.length]
+    colorDiv.style.textShadow = "2px 2px gray"
     colorDiv.innerHTML = colorLetter
     colored = chopped.slice(0, i).join('') + colorDiv.outerHTML + chopped.slice(i + 1, chopped.length).join('')
     pagetitle.innerHTML = colored
@@ -32,9 +33,9 @@ function animate() {
     setTimeout(function() {
       iteration(i)
       i++
-      if (i <= chopped.length - 1) {
+      if (i <= chopped.length) {
         doSetTimeout()
-      } else if (i == chopped.length) {
+      } else if (i == chopped.length + 1) {
         pagetitle.innerHTML = regular
       }
     }, 50);
