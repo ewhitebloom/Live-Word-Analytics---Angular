@@ -32,7 +32,7 @@ toplettersbutton.onclick = function() {
 
 function wordCount() {
 
-  document.getElementById('all_text').innerHTML = '';
+  document.getElementById('all_text').innerHTML = null;
 
   var words = document.getElementById("words_textarea").value.trim().match(/\w+/g);
 
@@ -206,7 +206,7 @@ function thesaurusHandling(data,suggestion) {
 
 function topletters() {
 
-  document.getElementById('all_text').innerHTML = '';
+  document.getElementById('all_text').innerHTML = null;
 
   var letters = document.getElementById("words_textarea").value.trim().match(/[A-z]/g);
 
