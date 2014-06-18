@@ -37,7 +37,7 @@ function animate() {
       } else if (i == chopped.length) {
         pagetitle.innerHTML = regular
       }
-    }, 100);
+    }, 50);
   }
 
   doSetTimeout()
