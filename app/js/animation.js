@@ -1,18 +1,15 @@
 pagetitle = document.getElementById('pagetitle')
 
 pagetitle.onmouseover = function() {
+  if (pagetitle.innerHTML == 'Word Analytics') {
     animate()
+  }
 }
-
-// pagetitle.onmouseout = function() {
-//   pagetitle.innerHTML = 'Word Analytics'
-// }
-
 
 function animate() {
   regular = 'Word Analytics'
 
-  colors = ['blue', 'red', 'yellow', 'green']
+  colors = ['#0266C8', '#F90101', '#F2B50F', '#00933B']
 
   chopped = pagetitle.innerHTML.split('')
 
@@ -29,16 +26,18 @@ function animate() {
     pagetitle.innerHTML = colored
   }
 
-  var i=0
+  var i = 0
 
   function doSetTimeout() {
     setTimeout(function() {
       iteration(i)
       i++
-      if (i<=chopped.length-1){
+      if (i <= chopped.length - 1) {
         doSetTimeout()
+      } else if (i == chopped.length) {
+        pagetitle.innerHTML = regular
       }
-    }, 300);
+    }, 100);
   }
 
   doSetTimeout()
