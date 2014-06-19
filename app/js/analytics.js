@@ -171,7 +171,6 @@ function topWords() {
               tbdy.insertBefore(tr, tbdy.childNodes[rowIndex])
               rowIndex += 1
             }
-            define()
           }
         });
       }
